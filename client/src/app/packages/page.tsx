@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Navbar from "@/components/layout/Navbar";
+import NavbarFixed from "@/components/layout/NavbarFixed";
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -56,7 +56,7 @@ export default function PackagesPage() {
   ];
   return (
     <div className="min-h-screen flex flex-col dark:bg-[#0F172A]">
-      <Navbar />
+      <NavbarFixed />
       <main className="flex-grow pt-14">
         <section className="w-full py-24 md:py-32 relative dark:bg-[#0F172A]">
           <div className="absolute inset-0 dark:bg-[url('/images/grid-pattern.png')] dark:opacity-5 pointer-events-none"></div>

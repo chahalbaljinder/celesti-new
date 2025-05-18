@@ -1,0 +1,18 @@
+import React from "react";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+
+export default function Home() {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-grow pt-14">
+        <div className="container mx-auto px-4 py-12 text-center">
+          <h1 className="text-3xl font-bold">Celesti</h1>
+          <p className="mt-4">Digital Experiences That Inspire</p>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
+}
