@@ -4,7 +4,7 @@ import React from "react";
 import NavbarFixed from "@/components/layout/NavbarFixed";
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
-import Link from "next/link";
+// Remove the unused Link import
 import Image from "next/image";
 import { CheckIcon } from "@heroicons/react/24/outline";
 
@@ -22,7 +22,7 @@ export default function PackagesPage() {
   const features = [
     "Top Notch Design — We design great looking websites that stand out. We use the latest design trends and techniques to make your website look great.",
     "Development — We build your website using the latest technologies and frameworks. We use the best tools to make sure your website is fast and secure.",
-    "Performance Optimized — We focus heavily on performance optimizations. Whether it's Image optimization or website load speed, we have got you covered.",
+    "Performance Optimized — We focus heavily on performance optimizations. Whether it&apos;s Image optimization or website load speed, we have got you covered.",
     "Responsive Design — Your website will look amazing on any device. We make sure your website looks great on mobile, tablet, and desktop.",
     "Search Engine Optimized — We make sure you get found on Google. We use the latest SEO techniques to make sure your website is optimized for search engines.",
     "Contact Forms — We know that you want to get reached out. We make sure you get all the leads you need. We integrate your website with your favorite email marketing service.",
@@ -113,10 +113,10 @@ export default function PackagesPage() {
               transition={{ duration: 0.5 }}
               className="mb-20"
             >              <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#FAD4D8]/10 text-[#FAD4D8]">Premium Features</div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-8 dark:text-[#CFD1EA]">What's Included</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-8 dark:text-[#CFD1EA]">What&apos;s Included</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6 p-8 bg-white dark:bg-[#1E293B]/60 rounded-xl shadow-lg border border-gray-100 dark:border-[#0F172A]/30">
-                {features.map((feature, index) => (
-                  <Feature key={index} text={feature} />
+                {features.map((feature, i) => (
+                  <Feature key={i} text={feature} />
                 ))}
               </div>
             </motion.div>
@@ -131,7 +131,7 @@ export default function PackagesPage() {
               </p>
               
               <div className="space-y-24">
-                {projects.map((project, index) => (
+                {projects.map((project) => (
                   <div key={project.title} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start group">                    <div>
                       <h3 className="text-2xl font-bold mb-4 dark:text-[#CFD1EA] group-hover:text-[#FAD4D8]/90 dark:group-hover:text-[#FAD4D8] transition-colors duration-300">{project.title}</h3>
                       <p className="text-lg mb-4 dark:text-[#E2E8F0]">{project.description}</p>
@@ -188,7 +188,7 @@ export default function PackagesPage() {
               </div>
               <div className="md:col-span-2">
                 <blockquote className="text-lg text-gray-600 dark:text-gray-300 mb-4">
-                  "Celesti helped us build our website from scratch to production in a record 1 month time. They took our requirements and delivered a website we are proud of so much that we are thrilled. I couldn't be any happier. Highly recommended."
+                  &ldquo;Celesti helped us build our website from scratch to production in a record 1 month time. They took our requirements and delivered a website we are proud of so much that we are thrilled. I couldn&apos;t be any happier. Highly recommended.&rdquo;
                 </blockquote>
                 <footer>
                   <p className="font-bold">Tyler Durden</p>

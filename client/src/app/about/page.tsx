@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import NavbarFixed from "@/components/layout/NavbarFixed";
 import Footer from "@/components/layout/Footer";
@@ -18,7 +19,7 @@ export default function About() {
             >
               <h1 className="text-4xl font-bold mb-6">About Us</h1>
               <p className="text-lg text-gray-600 dark:text-gray-400">
-                We're a team of passionate designers and developers creating exceptional digital experiences.
+                We&apos;re a team of passionate designers and developers creating exceptional digital experiences.
               </p>
             </motion.div>
             
@@ -72,7 +73,7 @@ export default function About() {
                 </div>
                 <div className="p-4 border border-gray-200 dark:border-gray-800 rounded-lg">
                   <h3 className="text-xl font-medium mb-2">Integrity</h3>
-                  <p className="text-gray-600 dark:text-gray-400">We're honest and transparent in all our client relationships.</p>
+                  <p className="text-gray-600 dark:text-gray-400">We&apos;re honest and transparent in all our client relationships.</p>
                 </div>
               </div>
             </motion.div>

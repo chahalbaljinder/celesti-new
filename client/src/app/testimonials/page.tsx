@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import NavbarFixed from "@/components/layout/NavbarFixed";
 import Footer from "@/components/layout/Footer";
@@ -48,7 +49,7 @@ export default function TestimonialsPage() {
             >
               <h1 className="text-4xl font-bold mb-6">Client Testimonials</h1>
               <p className="text-lg text-gray-600 dark:text-gray-400">
-                Don't just take our word for it. Here's what our clients have to say about our work.
+                Don&apos;t just take our word for it. Here&apos;s what our clients have to say about our work.
               </p>
             </motion.div>
             
@@ -78,7 +79,7 @@ export default function TestimonialsPage() {
                         </div>
                       </div>
                       <div>
-                        <p className="text-gray-600 dark:text-gray-300 italic mb-4">"{testimonial.quote}"</p>
+                        <p className="text-gray-600 dark:text-gray-300 italic mb-4">&ldquo;{testimonial.quote}&rdquo;</p>
                         <div className="flex items-center">
                           <div>
                             <p className="font-semibold">{testimonial.name}</p>

@@ -55,7 +55,7 @@ export default function Contact() {
             >
               <h1 className="text-4xl md:text-5xl font-bold mb-6 dark:text-[#D4AF37]">Get in Touch</h1>
               <p className="text-lg text-gray-600 dark:text-[#E2E8F0]">
-                Ready to transform your digital presence? We're here to bring your vision to life with premium design and development.
+                Ready to transform your digital presence? We&apos;re here to bring your vision to life with premium design and development.
               </p>
             </motion.div>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">

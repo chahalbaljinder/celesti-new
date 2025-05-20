@@ -2,14 +2,14 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+import Celesti from "@/../public/c.png";
 
 const Footer = () => {
   return (    <footer className="w-full bg-white dark:bg-[#0F172A] py-16 mt-12 border-t border-gray-200 dark:border-[#1E293B]">
       <div className="container mx-auto px-4 md:px-6">        <div className="flex flex-col items-center">          <Link href="/" className="flex items-center mb-10">
             <div className="h-12 w-auto ">
-              <Image 
-                src="/Celestial.png" 
+              <img 
+                src={Celesti.src} 
                 alt="Celesti Logo" 
                 width={64} 
                 height={64} 

@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import Celesti from "@/../public/c.png";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -63,13 +63,13 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center">
           <div className="h-16 w-auto">
-            <Image 
-              src="/Celestial.png" 
+            <img
+              src={Celesti.src} 
               alt="Celesti Logo" 
               width={96} 
               height={96} 
               className="h-16 w-auto"
-              priority
+              // priority
             />
           </div>
         </Link>

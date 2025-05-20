@@ -185,9 +185,9 @@ const ContactForm = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >          <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#FAD4D8]/20 text-[#333333]">Get in Touch</div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-5 dark:text-[#333333]">Let's Start a Conversation</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-5 dark:text-[#333333]">Let&apos;s Start a Conversation</h2>
           <p className="text-gray-600 dark:text-[#E2E8F0] max-w-2xl mx-auto text-lg">
-            Tell us about your project and we'll get back to you within 24 hours with a personalized consultation.
+            Tell us about your project and we&apos;ll get back to you within 24 hours with a personalized consultation.
           </p>
         </motion.div>
         
@@ -217,7 +217,7 @@ const ContactForm = () => {
                   </motion.div>
                   <h3 className="text-2xl font-semibold mb-2 dark:text-[#333333]">Message Sent!</h3>
                   <p className="text-gray-600 dark:text-[#E2E8F0] mb-6">
-                    Thank you for reaching out. We'll get back to you shortly.
+                    Thank you for reaching out. We&apos;ll get back to you shortly.
                   </p>                  <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}

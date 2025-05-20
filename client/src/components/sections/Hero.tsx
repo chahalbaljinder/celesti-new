@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 
 const Hero = () => {
   return (    <section className="w-full py-24 md:py-32 dark:bg-gradient-to-b dark:from-[#0F172A] dark:to-[#1E293B]">

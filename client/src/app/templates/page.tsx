@@ -113,7 +113,7 @@ const Testimonial = () => {
         </svg>
         <blockquote className="relative z-10">
           <p className="text-gray-800 dark:text-gray-200 text-lg mb-6">
-            "Agenlabs helped us build our website from scratch to production in a record 1 month time. They took our requirements and delivered a website we are proud of so much that we are thrilled. I couldn't be any happier. Highly recommended."
+            &quot;Agenlabs helped us build our website from scratch to production in a record 1 month time. They took our requirements and delivered a website we are proud of so much that we are thrilled. I couldn&apos;t be any happier. Highly recommended.&quot;
           </p>
           <footer className="text-gray-600 dark:text-gray-400 font-medium">
             <p className="font-bold text-gray-900 dark:text-gray-100">Tyler Durden</p>

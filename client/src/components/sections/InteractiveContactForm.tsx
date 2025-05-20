@@ -58,7 +58,7 @@ const InteractiveContactForm = () => {
               Get in Touch
             </h2>
             <p className="text-gray-600 dark:text-[#E2E8F0]">
-              We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.
+              We&apos;d love to hear from you. Fill out the form below and we&apos;ll get back to you as soon as possible.
             </p>
           </div>
 
@@ -166,7 +166,7 @@ const InteractiveContactForm = () => {
                           htmlFor="service"
                           className="block text-sm font-medium text-gray-700 dark:text-[#E2E8F0] mb-1"
                         >
-                          Service You're Interested In
+                          Service You&apos;re Interested In
                         </label>
                         <select
                           id="service"
@@ -300,7 +300,7 @@ const InteractiveContactForm = () => {
                 Thank You!
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6">
-                Your message has been received. We'll get back to you shortly at{" "}
+                Your message has been received. We&apos;ll get back to you shortly at{" "}
                 <span className="font-medium">{formData.email}</span>.
               </p>
               <button

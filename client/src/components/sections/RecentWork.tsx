@@ -83,7 +83,7 @@ const RecentWork = () => {
         >
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Recent Work</h2>
           <p className="text-gray-500 md:text-xl/relaxed dark:text-gray-400">
-            A look at some of the exciting projects that we've recently worked on.
+            A look at some of the exciting projects that we&apos;ve recently worked on.
           </p>
         </motion.div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
