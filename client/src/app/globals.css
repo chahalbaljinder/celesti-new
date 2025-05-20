@@ -18,12 +18,12 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: var(--luxury-dark);
     --foreground: var(--luxury-text);
   }
-}
+} */
 
 body {
   background: var(--background);
