@@ -19,12 +19,12 @@ const TestimonialSecondary = ({ quote, name, position, company }: TestimonialPro
       viewport={{ once: true }}
       className="flex flex-col items-center text-center mx-auto max-w-3xl"
     >
-      <span className="text-lg md:text-xl italic text-gray-700 dark:text-gray-300 mb-4">
+      <span className="text-lg md:text-xl italic text-gray-700 mb-4">
       &quot;{quote}&quot;
       </span>
       <div className="mt-4">
         <p className="font-semibold">{name}</p>
-        <p className="text-sm text-gray-500 dark:text-gray-400">
+        <p className="text-sm text-gray-500">
           {position} at {company}
         </p>
       </div>

@@ -50,14 +50,14 @@ const InteractiveContactForm = () => {
   };
 
   return (
-    <section className="w-full py-12 md:py-24 bg-gray-50 dark:bg-[#CFD1EA]/10">
+    <section className="w-full py-12 md:py-24 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold mb-3 text-[#333333] dark:text-[#CFD1EA]">
+            <h2 className="text-3xl font-bold mb-3 text-[#333333]">
               Get in Touch
             </h2>
-            <p className="text-gray-600 dark:text-[#E2E8F0]">
+            <p className="text-gray-600">
               We&apos;d love to hear from you. Fill out the form below and we&apos;ll get back to you as soon as possible.
             </p>
           </div>
@@ -71,7 +71,7 @@ const InteractiveContactForm = () => {
                     className={`w-10 h-10 rounded-full flex items-center justify-center ${
                       i <= step
                         ? "bg-[#FAD4D8] text-white"
-                        : "bg-gray-200 text-gray-500 dark:bg-[#1E293B] dark:text-gray-400"
+                        : "bg-gray-200 text-gray-500"
                     }`}
                   >
                     {i < step ? (
@@ -107,7 +107,7 @@ const InteractiveContactForm = () => {
                       <div className="mb-4">
                         <label
                           htmlFor="name"
-                          className="block text-sm font-medium text-gray-700 dark:text-[#E2E8F0] mb-1"
+                          className="block text-sm font-medium text-gray-700 mb-1"
                         >
                           Your Name
                         </label>
@@ -118,14 +118,14 @@ const InteractiveContactForm = () => {
                           value={formData.name}
                           onChange={handleInputChange}
                           required
-                          className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-[#1E293B] focus:outline-none focus:ring-2 focus:ring-[#FAD4D8] dark:bg-[#0F172A] dark:text-white"
+                          className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FAD4D8]"
                           placeholder="John Doe"
                         />
                       </div>
                       <div className="mb-6">
                         <label
                           htmlFor="email"
-                          className="block text-sm font-medium text-gray-700 dark:text-[#E2E8F0] mb-1"
+                          className="block text-sm font-medium text-gray-700 mb-1"
                         >
                           Your Email
                         </label>
@@ -136,7 +136,7 @@ const InteractiveContactForm = () => {
                           value={formData.email}
                           onChange={handleInputChange}
                           required
-                          className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-[#1E293B] focus:outline-none focus:ring-2 focus:ring-[#FAD4D8] dark:bg-[#0F172A] dark:text-white"
+                          className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FAD4D8]"
                           placeholder="john@example.com"
                         />
                       </div>
@@ -164,7 +164,7 @@ const InteractiveContactForm = () => {
                       <div className="mb-6">
                         <label
                           htmlFor="service"
-                          className="block text-sm font-medium text-gray-700 dark:text-[#E2E8F0] mb-1"
+                          className="block text-sm font-medium text-gray-700 mb-1"
                         >
                           Service You&apos;re Interested In
                         </label>
@@ -174,7 +174,7 @@ const InteractiveContactForm = () => {
                           value={formData.service}
                           onChange={handleInputChange}
                           required
-                          className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-[#1E293B] focus:outline-none focus:ring-2 focus:ring-[#FAD4D8] dark:bg-[#0F172A] dark:text-white"
+                          className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FAD4D8]"
                         >
                           <option value="webdesign">Web Design</option>
                           <option value="development">Development</option>
@@ -186,7 +186,7 @@ const InteractiveContactForm = () => {
                         <button
                           type="button"
                           onClick={handlePrevious}
-                          className="px-6 py-2 rounded-md border border-gray-300 dark:border-[#1E293B] text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-[#1E293B] transition-colors"
+                          className="px-6 py-2 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-100 transition-colors"
                         >
                           Back
                         </button>
@@ -213,7 +213,7 @@ const InteractiveContactForm = () => {
                       <div className="mb-6">
                         <label
                           htmlFor="message"
-                          className="block text-sm font-medium text-gray-700 dark:text-[#E2E8F0] mb-1"
+                          className="block text-sm font-medium text-gray-700 mb-1"
                         >
                           Your Message
                         </label>
@@ -224,7 +224,7 @@ const InteractiveContactForm = () => {
                           onChange={handleInputChange}
                           required
                           rows={5}
-                          className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-[#1E293B] focus:outline-none focus:ring-2 focus:ring-[#FAD4D8] dark:bg-[#0F172A] dark:text-white"
+                          className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FAD4D8]"
                           placeholder="Tell us about your project..."
                         ></textarea>
                       </div>
@@ -232,7 +232,7 @@ const InteractiveContactForm = () => {
                         <button
                           type="button"
                           onClick={handlePrevious}
-                          className="px-6 py-2 rounded-md border border-gray-300 dark:border-[#1E293B] text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-[#1E293B] transition-colors"
+                          className="px-6 py-2 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-100 transition-colors"
                         >
                           Back
                         </button>
@@ -296,10 +296,10 @@ const InteractiveContactForm = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-2">
                 Thank You!
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
+              <p className="text-gray-600 mb-6">
                 Your message has been received. We&apos;ll get back to you shortly at{" "}
                 <span className="font-medium">{formData.email}</span>.
               </p>

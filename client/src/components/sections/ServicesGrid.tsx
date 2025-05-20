@@ -16,12 +16,13 @@ const ServiceGridItem = ({ icon, title, description }: ServiceGridItemProps) => 
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="flex flex-col items-start p-6 bg-white dark:bg-[#F2F0D5] rounded-lg shadow-md dark:shadow-lg border border-gray-100 dark:border-[#FAD4D8]/30 hover:shadow-xl transition-shadow duration-300"
-    >      <div className="mb-5 rounded-full p-3 bg-gray-100 dark:bg-[#0F172A] text-gray-800 dark:text-[#FAD4D8]">
+      className="flex flex-col items-start p-6 bg-white rounded-lg shadow-md border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+    >
+      <div className="mb-5 rounded-full p-3 bg-gray-100 text-gray-800">
         {icon}
       </div>
-      <h3 className="text-lg font-semibold mb-3 dark:text-[#333333]">{title}</h3>
-      <p className="text-sm text-gray-600 dark:text-[#E2E8F0] leading-relaxed">{description}</p>
+      <h3 className="text-lg font-semibold mb-3">{title}</h3>
+      <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
     </motion.div>
   );
 };
@@ -150,8 +151,8 @@ const ServicesGrid = () => {
     }
   ];
   return (
-    <section className="w-full py-16 md:py-32 bg-gray-50 dark:bg-[#CFD1EA]/95 relative">
-      <div className="absolute inset-0 dark:bg-[url('/images/grid-pattern.png')] dark:opacity-5 pointer-events-none"></div>
+    <section className="w-full py-16 md:py-32 bg-gray-50 relative">
+      <div className="absolute inset-0 pointer-events-none"></div>
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -159,9 +160,10 @@ const ServicesGrid = () => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
           className="text-center mb-16"
-        >          <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#FAD4D8]/20 text-[#333333]">Our Expertise</div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 dark:text-[#333333]">Comprehensive Digital Solutions</h2>
-          <p className="text-gray-600 dark:text-[#333333] max-w-2xl mx-auto">
+        >
+          <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#FAD4D8]/20 text-[#333333]">Our Expertise</div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Comprehensive Digital Solutions</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
             From strategic planning to flawless execution, we deliver end-to-end solutions that elevate your brand and create meaningful digital experiences.
           </p>
         </motion.div>

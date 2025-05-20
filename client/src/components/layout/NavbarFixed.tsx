@@ -59,7 +59,7 @@ const Navbar = () => {
     }
   };
     return (
-    <header className="w-full px-4 lg:px-6 h-14 flex items-center justify-between fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#0F172A] backdrop-blur-sm border-b border-gray-100 dark:border-[#1E293B]">
+    <header className="w-full px-4 lg:px-6 h-14 flex items-center justify-between fixed top-0 left-0 right-0 z-50 bg-white backdrop-blur-sm border-b border-gray-100">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center">
           <div className="h-16 w-auto">
@@ -123,7 +123,7 @@ const Navbar = () => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6 text-black dark:text-[#CFD1EA]"
+            className="w-6 h-6 text-black"
           >
             <path
               strokeLinecap="round"
@@ -141,7 +141,7 @@ const Navbar = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.2 }}
-          className="absolute top-14 left-0 right-0 bg-white dark:bg-[#0F172A] shadow-lg p-4 md:hidden border-t border-gray-100 dark:border-[#1E293B]"
+          className="absolute top-14 left-0 right-0 bg-white shadow-lg p-4 md:hidden border-t border-gray-100"
         >
           <nav className="flex flex-col gap-4">
             <Link 

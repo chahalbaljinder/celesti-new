@@ -18,7 +18,7 @@ export default function About() {
               className="max-w-3xl mx-auto text-center mb-12"
             >
               <h1 className="text-4xl font-bold mb-6">About Us</h1>
-              <p className="text-lg text-gray-600 dark:text-gray-400">
+              <p className="text-lg text-gray-600">
                 We&apos;re a team of passionate designers and developers creating exceptional digital experiences.
               </p>
             </motion.div>
@@ -31,10 +31,10 @@ export default function About() {
                 className="space-y-4"
               >
                 <h2 className="text-2xl font-semibold">Our Mission</h2>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-600">
                   We create beautiful websites and applications that rival the most popular services like Google and Facebook. We blend marketing insights with good code to deliver exceptional results for our clients.
                 </p>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-600">
                   Our mission is to help businesses of all sizes establish a strong online presence through modern web applications that not only look great but also perform exceptionally well.
                 </p>
               </motion.div>
@@ -46,10 +46,10 @@ export default function About() {
                 className="space-y-4"
               >
                 <h2 className="text-2xl font-semibold">Our Approach</h2>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-600">
                   We believe in a collaborative approach, working closely with our clients to understand their goals and bring their vision to life. We stay updated with the latest technologies and best practices to deliver cutting-edge solutions.
                 </p>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-600">
                   Every project we undertake is treated with the same level of dedication and attention to detail, regardless of its size or complexity.
                 </p>
               </motion.div>
@@ -63,17 +63,17 @@ export default function About() {
             >
               <h2 className="text-2xl font-semibold mb-6">Our Values</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-                <div className="p-4 border border-gray-200 dark:border-gray-800 rounded-lg">
+                <div className="p-4 border border-gray-200 rounded-lg">
                   <h3 className="text-xl font-medium mb-2">Excellence</h3>
-                  <p className="text-gray-600 dark:text-gray-400">We strive for excellence in everything we do, from design to code.</p>
+                  <p className="text-gray-600">We strive for excellence in everything we do, from design to code.</p>
                 </div>
-                <div className="p-4 border border-gray-200 dark:border-gray-800 rounded-lg">
+                <div className="p-4 border border-gray-200 rounded-lg">
                   <h3 className="text-xl font-medium mb-2">Innovation</h3>
-                  <p className="text-gray-600 dark:text-gray-400">We embrace new technologies and innovative solutions.</p>
+                  <p className="text-gray-600">We embrace new technologies and innovative solutions.</p>
                 </div>
-                <div className="p-4 border border-gray-200 dark:border-gray-800 rounded-lg">
+                <div className="p-4 border border-gray-200 rounded-lg">
                   <h3 className="text-xl font-medium mb-2">Integrity</h3>
-                  <p className="text-gray-600 dark:text-gray-400">We&apos;re honest and transparent in all our client relationships.</p>
+                  <p className="text-gray-600">We&apos;re honest and transparent in all our client relationships.</p>
                 </div>
               </div>
             </motion.div>

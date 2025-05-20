@@ -131,8 +131,8 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="w-full py-20 md:py-36 bg-gray-50 dark:bg-[#CFD1EA]/95 relative overflow-hidden">
-      <div className="absolute inset-0 dark:bg-[url('/images/grid-pattern.png')] dark:opacity-5 pointer-events-none"></div>
+    <section className="w-full py-20 md:py-36 bg-gray-50 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none"></div>
       
       {/* Floating elements */}
       <motion.div 
@@ -185,8 +185,8 @@ const ContactForm = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >          <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#FAD4D8]/20 text-[#333333]">Get in Touch</div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-5 dark:text-[#333333]">Let&apos;s Start a Conversation</h2>
-          <p className="text-gray-600 dark:text-[#E2E8F0] max-w-2xl mx-auto text-lg">
+          <h2 className="text-4xl md:text-5xl font-bold mb-5">Let&apos;s Start a Conversation</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
             Tell us about your project and we&apos;ll get back to you within 24 hours with a personalized consultation.
           </p>
         </motion.div>
@@ -195,7 +195,7 @@ const ContactForm = () => {
             variants={formVariants}
             initial="hidden"
             animate={controls}
-            className="relative bg-white/80 dark:bg-[#F2F0D5]/90 p-8 md:p-10 rounded-2xl shadow-xl dark:shadow-[0_8px_30px_rgb(0,0,0,0.12)] backdrop-blur-sm border border-gray-100 dark:border-[#FAD4D8]/30"
+            className="relative bg-white/80 p-8 md:p-10 rounded-2xl shadow-xl backdrop-blur-sm border border-gray-100"
           ><AnimatePresence mode="wait">
               {submitted ? (
                 <motion.div
@@ -215,13 +215,13 @@ const ContactForm = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                     </svg>
                   </motion.div>
-                  <h3 className="text-2xl font-semibold mb-2 dark:text-[#333333]">Message Sent!</h3>
-                  <p className="text-gray-600 dark:text-[#E2E8F0] mb-6">
+                  <h3 className="text-2xl font-semibold mb-2">Message Sent!</h3>
+                  <p className="text-gray-600 mb-6">
                     Thank you for reaching out. We&apos;ll get back to you shortly.
                   </p>                  <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-6 py-2 text-sm border border-[#FAD4D8]/30 rounded-md text-gray-800 dark:text-[#333333] hover:bg-[#FAD4D8]/20 transition-colors"
+                    className="px-6 py-2 text-sm border border-[#FAD4D8]/30 rounded-md text-gray-800 hover:bg-[#FAD4D8]/20 transition-colors"
                     onClick={() => setSubmitted(false)}
                   >
                     Send Another Message
@@ -240,10 +240,11 @@ const ContactForm = () => {
                   {submitStatus.message && (
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}                      className={`p-4 text-sm rounded-md mb-2 ${
+                      animate={{ opacity: 1, y: 0 }}
+                      className={`p-4 text-sm rounded-md mb-2 ${
                         submitStatus.success
-                          ? "bg-[#0F172A]/30 text-[#333333] dark:bg-[#FAD4D8]/10 dark:text-[#333333] border border-[#FAD4D8]/20"
-                          : "bg-red-100/30 text-red-700 dark:bg-red-900/20 dark:text-red-300 border border-red-300/20"
+                          ? "bg-[#0F172A]/30 text-[#333333] border border-[#FAD4D8]/20"
+                          : "bg-red-100/30 text-red-700 border border-red-300/20"
                       }`}
                     >
                       <div className="flex items-center">                        {submitStatus.success ? (
@@ -270,8 +271,8 @@ const ContactForm = () => {
                         htmlFor="name"
                         className={`absolute left-4 text-sm font-medium transition-all duration-200 ${
                           activeField === 'name' || formData.name 
-                            ? '-top-2 text-xs bg-white dark:bg-[#1E293B] px-1 text-[#333333]' 
-                            : 'top-3 text-gray-500 dark:text-[#94A3B8]'
+                            ? '-top-2 text-xs bg-white px-1 text-[#333333]' 
+                            : 'top-3 text-gray-500'
                         }`}
                       >
                         Full Name
@@ -286,7 +287,7 @@ const ContactForm = () => {
                         onBlur={handleBlur}
                         required
                         suppressHydrationWarning
-                        className="w-full px-4 py-3 border-2 rounded-lg shadow-sm focus:outline-none dark:border-[#334155]/80 dark:bg-[#0F172A]/60 dark:text-white"
+                        className="w-full px-4 py-3 border-2 rounded-lg shadow-sm focus:outline-none"
                       />                      <motion.span 
                         className="absolute right-4 top-3 text-[#FAD4D8]"
                         initial={{ opacity: 0, scale: 0 }}
@@ -310,8 +311,8 @@ const ContactForm = () => {
                         htmlFor="email"
                         className={`absolute left-4 text-sm font-medium transition-all duration-200 ${
                           activeField === 'email' || formData.email
-                            ? '-top-2 text-xs bg-white dark:bg-[#1E293B] px-1 text-[#333333]' 
-                            : 'top-3 text-gray-500 dark:text-[#94A3B8]'
+                            ? '-top-2 text-xs bg-white px-1 text-[#333333]' 
+                            : 'top-3 text-gray-500'
                         }`}
                       >
                         Email Address
@@ -326,7 +327,7 @@ const ContactForm = () => {
                         onBlur={handleBlur}
                         required
                         suppressHydrationWarning
-                        className="w-full px-4 py-3 border-2 rounded-lg shadow-sm focus:outline-none dark:border-[#334155]/80 dark:bg-[#0F172A]/60 dark:text-white"
+                        className="w-full px-4 py-3 border-2 rounded-lg shadow-sm focus:outline-none"
                       />                      <motion.span 
                         className="absolute right-4 top-3 text-[#CFD1EA]"
                         initial={{ opacity: 0, scale: 0 }}
@@ -350,8 +351,8 @@ const ContactForm = () => {
                         htmlFor="subject"
                         className={`absolute left-4 text-sm font-medium transition-all duration-200 ${
                           activeField === 'subject' || formData.subject
-                            ? '-top-2 text-xs bg-white dark:bg-[#1E293B] px-1 text-[#333333]' 
-                            : 'top-3 text-gray-500 dark:text-[#94A3B8]'
+                            ? '-top-2 text-xs bg-white px-1 text-[#333333]' 
+                            : 'top-3 text-gray-500'
                         }`}
                       >
                         Subject
@@ -365,7 +366,7 @@ const ContactForm = () => {
                         onFocus={() => handleFocus('subject')}
                         onBlur={handleBlur}
                         suppressHydrationWarning
-                        className="w-full px-4 py-3 border-2 rounded-lg shadow-sm focus:outline-none dark:border-[#334155]/80 dark:bg-[#0F172A]/60 dark:text-white"
+                        className="w-full px-4 py-3 border-2 rounded-lg shadow-sm focus:outline-none"
                       />
                       <motion.span 
                         className="absolute right-4 top-3 text-[#CCE2CB]"
@@ -390,8 +391,8 @@ const ContactForm = () => {
                         htmlFor="message"
                         className={`absolute left-4 text-sm font-medium transition-all duration-200 ${
                           activeField === 'message' || formData.message
-                            ? '-top-2 text-xs bg-white dark:bg-[#1E293B] px-1 text-[#333333]' 
-                            : 'top-3 text-gray-500 dark:text-[#94A3B8]'
+                            ? '-top-2 text-xs bg-white px-1 text-[#333333]' 
+                            : 'top-3 text-gray-500'
                         }`}
                       >
                         Your Message
@@ -406,7 +407,7 @@ const ContactForm = () => {
                         rows={4}
                         required
                         suppressHydrationWarning
-                        className="w-full px-4 py-3 border-2 rounded-lg shadow-sm focus:outline-none dark:border-[#334155]/80 dark:bg-[#0F172A]/60 dark:text-white"
+                        className="w-full px-4 py-3 border-2 rounded-lg shadow-sm focus:outline-none"
                       />
                       <motion.span 
                         className="absolute right-4 top-3 text-[#F2F0D5]"

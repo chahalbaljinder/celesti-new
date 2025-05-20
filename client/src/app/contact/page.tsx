@@ -41,11 +41,11 @@ export default function Contact() {
     }
   ];
   return (
-    <div className="min-h-screen flex flex-col dark:bg-[#0F172A]">
+    <div className="min-h-screen flex flex-col">
       <NavbarFixed />
       <main className="flex-grow pt-14">
-        <section className="w-full py-24 md:py-32 relative dark:bg-[#0F172A]">
-          <div className="absolute inset-0 dark:bg-[url('/images/grid-pattern.png')] dark:opacity-5 pointer-events-none"></div>
+        <section className="w-full py-24 md:py-32 relative">
+          <div className="absolute inset-0 pointer-events-none"></div>
           <div className="container mx-auto px-4 md:px-6 relative z-10">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -53,8 +53,8 @@ export default function Contact() {
               transition={{ duration: 0.5 }}
               className="max-w-3xl mx-auto text-center mb-16"
             >
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 dark:text-[#D4AF37]">Get in Touch</h1>
-              <p className="text-lg text-gray-600 dark:text-[#E2E8F0]">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">Get in Touch</h1>
+              <p className="text-lg text-gray-600">
                 Ready to transform your digital presence? We&apos;re here to bring your vision to life with premium design and development.
               </p>
             </motion.div>
@@ -66,13 +66,13 @@ export default function Contact() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 * index }}
-                  className="bg-white dark:bg-[#1E293B] p-8 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow border border-transparent dark:border-[#D4AF37]/10"
+                  className="bg-white p-8 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow border border-transparent/10"
                 >
-                  <div className="mx-auto bg-gray-100 dark:bg-[#0F172A] w-16 h-16 rounded-full flex items-center justify-center text-gray-600 dark:text-[#D4AF37] mb-5 shadow-md">
+                  <div className="mx-auto bg-gray-100 w-16 h-16 rounded-full flex items-center justify-center text-gray-600 mb-5 shadow-md">
                     {item.icon}
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 dark:text-[#D4AF37]">{item.title}</h3>
-                  <p className="text-gray-600 dark:text-[#E2E8F0]">{item.content}</p>
+                  <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                  <p className="text-gray-600">{item.content}</p>
                 </motion.a>
               ))}
             </div>
@@ -84,9 +84,9 @@ export default function Contact() {
               transition={{ duration: 0.5, delay: 0.6 }}
               className="max-w-5xl mx-auto mt-20"
             >
-              <div className="bg-white dark:bg-[#1E293B] rounded-xl overflow-hidden h-96 w-full shadow-lg border border-transparent dark:border-[#D4AF37]/10">
+              <div className="bg-white rounded-xl overflow-hidden h-96 w-full shadow-lg border border-transparent/10">
                 {/* This would be replaced with an actual map component in a real implementation */}
-                <div className="w-full h-full bg-gray-200 dark:bg-[#0F172A]/80 flex items-center justify-center text-gray-600 dark:text-[#E2E8F0] relative">
+                <div className="w-full h-full bg-gray-200/80 flex items-center justify-center text-gray-600 relative">
                   <div className="absolute w-full h-full opacity-20 bg-[url('/images/map-bg.jpg')] bg-cover bg-center"></div>
                   <div className="z-10 text-center p-8">
                     <div className="w-12 h-12 mx-auto mb-4 text-[#D4AF37]">
@@ -95,8 +95,8 @@ export default function Contact() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                     </div>
-                    <p className="text-xl font-medium dark:text-[#D4AF37] mb-2">Visit Our Office</p>
-                    <p className="text-gray-600 dark:text-[#E2E8F0] max-w-md mx-auto">123 Tech Street, San Francisco, CA 94107</p>
+                    <p className="text-xl font-medium mb-2">Visit Our Office</p>
+                    <p className="text-gray-600 max-w-md mx-auto">123 Tech Street, San Francisco, CA 94107</p>
                     <button className="mt-6 px-6 py-3 bg-[#D4AF37] text-[#0F172A] rounded-md hover:bg-[#D4AF37]/90 transition-colors duration-300 font-medium">
                       Open in Google Maps
                     </button>

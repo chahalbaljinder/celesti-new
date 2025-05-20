@@ -27,8 +27,9 @@ const ProjectCard = ({
       viewport={{ once: true }}
       className="mb-32 group"
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-3 dark:text-[#D4AF37]">{title}</h2>
-      <p className="text-lg mb-3 text-gray-700 dark:text-[#E2E8F0] max-w-3xl">{description}</p>      <p className="text-gray-500 mb-6 dark:text-[#94A3B8]">{subtitle}</p>
+      <h2 className="text-3xl md:text-4xl font-bold mb-3">{title}</h2>
+      <p className="text-lg mb-3 text-gray-700 max-w-3xl">{description}</p>
+      <p className="text-gray-500 mb-6">{subtitle}</p>
       
       <div className="flex flex-wrap items-center mb-8">
         <a 
@@ -41,7 +42,7 @@ const ProjectCard = ({
         </a>
         <a 
           href="#" 
-          className="inline-flex items-center px-5 py-2.5 border border-[#D4AF37]/30 text-sm font-medium rounded-md shadow-sm text-gray-800 dark:text-[#E2E8F0] bg-transparent hover:bg-[#D4AF37]/10 transition-colors duration-300 focus:outline-none"
+          className="inline-flex items-center px-5 py-2.5 border border-[#D4AF37]/30 text-sm font-medium rounded-md shadow-sm text-gray-800 bg-transparent hover:bg-[#D4AF37]/10 transition-colors duration-300 focus:outline-none"
         >
           Case Study
         </a>
@@ -51,7 +52,7 @@ const ProjectCard = ({
         {images.map((image, index) => (
           <div 
             key={index} 
-            className="rounded-lg overflow-hidden shadow-xl group-hover:shadow-2xl transition-shadow duration-500 border border-transparent dark:border-[#D4AF37]/10 bg-white dark:bg-[#1E293B]"
+            className="rounded-lg overflow-hidden shadow-xl group-hover:shadow-2xl transition-shadow duration-500 border border-transparent bg-white"
           >
             <div className="relative p-2">
               <Image
@@ -114,11 +115,11 @@ export default function WorkPage() {
     }
   ];
   return (
-    <div className="min-h-screen flex flex-col dark:bg-[#0F172A]">
+    <div className="min-h-screen flex flex-col">
       <NavbarFixed />
       <main className="flex-grow pt-14">
-        <section className="w-full py-24 md:py-32 relative dark:bg-[#0F172A]">
-          <div className="absolute inset-0 dark:bg-[url('/images/grid-pattern.png')] dark:opacity-5 pointer-events-none"></div>
+        <section className="w-full py-24 md:py-32 relative">
+          <div className="absolute inset-0 pointer-events-none"></div>
           <div className="container mx-auto px-4 md:px-6 relative z-10">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -128,7 +129,7 @@ export default function WorkPage() {
             >
               <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37]">Our Portfolio</div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">A glimpse into our <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] to-[#FEF3C7]">premium projects</span></h1>
-              <p className="text-lg text-gray-600 dark:text-[#E2E8F0]">
+              <p className="text-lg text-gray-600">
                 Explore our collection of bespoke digital experiences crafted with precision and luxury in mind.
               </p>
             </motion.div>
@@ -146,9 +147,11 @@ export default function WorkPage() {
               ))}
             </div>
           </div>
-        </section>        {/* Contact Section */}
-        <section className="w-full py-20 bg-gray-50 dark:bg-[#0F172A] border-t border-gray-100 dark:border-[#1E293B] relative">
-          <div className="absolute inset-0 dark:bg-[url('/images/grid-pattern.png')] dark:opacity-5 pointer-events-none"></div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="w-full py-20 bg-gray-50 border-t border-gray-100 relative">
+          <div className="absolute inset-0 pointer-events-none"></div>
           <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -158,8 +161,8 @@ export default function WorkPage() {
               className="max-w-3xl mx-auto"
             >
               <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37]">Ready to Begin?</div>
-              <h2 className="text-3xl font-bold mb-6 dark:text-[#D4AF37]">Transform Your Digital Presence</h2>
-              <p className="text-lg text-gray-600 dark:text-[#E2E8F0] mb-10 max-w-2xl mx-auto">
+              <h2 className="text-3xl font-bold mb-6">Transform Your Digital Presence</h2>
+              <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
                 Contact us for a personalized consultation. Our team of experts will collaborate with you to create a bespoke digital experience that reflects the premium nature of your brand.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
@@ -171,7 +174,7 @@ export default function WorkPage() {
                 </a>
                 <a 
                   href="/contact"
-                  className="inline-flex items-center px-6 py-3 border border-[#D4AF37]/30 text-base font-medium rounded-md text-gray-800 dark:text-[#E2E8F0] hover:bg-[#D4AF37]/10 transition-colors duration-300"
+                  className="inline-flex items-center px-6 py-3 border border-[#D4AF37]/30 text-base font-medium rounded-md text-gray-800 hover:bg-[#D4AF37]/10 transition-colors duration-300"
                 >
                   View Services
                 </a>

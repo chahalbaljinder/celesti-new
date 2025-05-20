@@ -4,16 +4,16 @@ import React from "react";
 import NavbarFixed from "@/components/layout/NavbarFixed";
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
-// Remove the unused Link import
 import Image from "next/image";
 import { CheckIcon } from "@heroicons/react/24/outline";
 
 const Feature = ({ text }: { text: string }) => {
   return (
-    <div className="flex items-start mb-6 group">      <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#FAD4D8]/20 flex items-center justify-center mr-4 group-hover:bg-[#FAD4D8]/30 transition-colors duration-300">
+    <div className="flex items-start mb-6 group">
+      <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#FAD4D8]/20 flex items-center justify-center mr-4 group-hover:bg-[#FAD4D8]/30 transition-colors duration-300">
         <CheckIcon className="h-4 w-4 text-[#FAD4D8]" />
       </div>
-      <p className="text-gray-700 dark:text-[#E2E8F0] text-left">{text}</p>
+      <p className="text-gray-700 text-left">{text}</p>
     </div>
   );
 };
@@ -55,21 +55,22 @@ export default function PackagesPage() {
     }
   ];
   return (
-    <div className="min-h-screen flex flex-col dark:bg-[#0F172A]">
+    <div className="min-h-screen flex flex-col">
       <NavbarFixed />
       <main className="flex-grow pt-14">
-        <section className="w-full py-24 md:py-32 relative dark:bg-[#0F172A]">
-          <div className="absolute inset-0 dark:bg-[url('/images/grid-pattern.png')] dark:opacity-5 pointer-events-none"></div>
+        <section className="w-full py-24 md:py-32 relative">
+          <div className="absolute inset-0 pointer-events-none"></div>
           <div className="container mx-auto px-4 md:px-6 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
               <motion.div 
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
-              >                <div className="inline-block mb-4 text-sm font-medium px-3 py-1 rounded-full bg-[#FAD4D8]/10 text-[#FAD4D8]">Premium Package</div>
+              >
+                <div className="inline-block mb-4 text-sm font-medium px-3 py-1 rounded-full bg-[#FAD4D8]/10 text-[#FAD4D8]">Premium Package</div>
                 <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#FAD4D8] to-[#CFD1EA]">$7,995</h1>
-                <h2 className="text-2xl font-medium mb-6 dark:text-[#CFD1EA]">Luxury Landing Page Development</h2>
-                <p className="text-gray-600 dark:text-[#E2E8F0] mb-8 text-lg">
+                <h2 className="text-2xl font-medium mb-6">Luxury Landing Page Development</h2>
+                <p className="text-gray-600 mb-8 text-lg">
                   An exceptional landing page is the cornerstone of your digital presence. We create sophisticated, 
                   high-converting landing pages that elevate your brand and drive measurable results.
                 </p>
@@ -82,60 +83,66 @@ export default function PackagesPage() {
                   </a>
                   <a 
                     href="/contact"
-                    className="inline-flex items-center px-6 py-3 border border-[#FAD4D8]/30 text-base font-medium rounded-md text-gray-800 dark:text-[#E2E8F0] hover:bg-[#FAD4D8]/10 transition-colors duration-300"
+                    className="inline-flex items-center px-6 py-3 border border-[#FAD4D8]/30 text-base font-medium rounded-md text-gray-800 hover:bg-[#FAD4D8]/10 transition-colors duration-300"
                   >
                     Learn More
                   </a>
                 </div>
-              </motion.div>              <motion.div 
+              </motion.div>
+              <motion.div 
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="relative"
               >
-                <div className="relative p-3 bg-white dark:bg-[#1E293B] shadow-xl rounded-lg border border-gray-100 dark:border-[#0F172A]/50">                  <div className="absolute -top-3 -left-3 w-20 h-20 bg-[#FAD4D8]/10 rounded-full blur-xl"></div>
+                <div className="relative p-3 bg-white shadow-xl rounded-lg border border-gray-100">
+                  <div className="absolute -top-3 -left-3 w-20 h-20 bg-[#FAD4D8]/10 rounded-full blur-xl"></div>
                   <div className="absolute -bottom-3 -right-3 w-20 h-20 bg-[#FAD4D8]/10 rounded-full blur-xl"></div>
                   <Image
                     src="/images/products/aceternity.png"
                     alt="Luxury Landing Page Example"
                     width={640}
                     height={360}
-                    className="rounded-md shadow-lg w-full relative z-10 border border-gray-100 dark:border-[#0F172A]/50"
-                  />                  <div className="absolute bottom-8 right-8 bg-[#1E293B]/80 backdrop-blur-sm border border-[#FAD4D8]/20 px-4 py-2 rounded-md shadow-lg z-20">
+                    className="rounded-md shadow-lg w-full relative z-10 border border-gray-100"
+                  />
+                  <div className="absolute bottom-8 right-8 bg-[#1E293B]/80 backdrop-blur-sm border border-[#FAD4D8]/20 px-4 py-2 rounded-md shadow-lg z-20">
                     <span className="text-[#FAD4D8] font-medium">Premium Design</span>
                   </div>
                 </div>
               </motion.div>
             </div>
-              <motion.div 
+            <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="mb-20"
-            >              <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#FAD4D8]/10 text-[#FAD4D8]">Premium Features</div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-8 dark:text-[#CFD1EA]">What&apos;s Included</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6 p-8 bg-white dark:bg-[#1E293B]/60 rounded-xl shadow-lg border border-gray-100 dark:border-[#0F172A]/30">
+            >
+              <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#FAD4D8]/10 text-[#FAD4D8]">Premium Features</div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-8">What&apos;s Included</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6 p-8 bg-white rounded-xl shadow-lg border border-gray-100">
                 {features.map((feature, i) => (
                   <Feature key={i} text={feature} />
                 ))}
               </div>
             </motion.div>
-              <motion.div 
+            <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-            >              <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#FAD4D8]/10 text-[#FAD4D8]">Our Portfolio</div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-6 dark:text-[#CFD1EA]">Case Studies</h2>
-              <p className="text-gray-600 dark:text-[#E2E8F0] mb-12 text-lg">
+            >
+              <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#FAD4D8]/10 text-[#FAD4D8]">Our Portfolio</div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">Case Studies</h2>
+              <p className="text-gray-600 mb-12 text-lg">
                 Explore some of our premium digital experiences that have transformed businesses.
               </p>
               
               <div className="space-y-24">
                 {projects.map((project) => (
-                  <div key={project.title} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start group">                    <div>
-                      <h3 className="text-2xl font-bold mb-4 dark:text-[#CFD1EA] group-hover:text-[#FAD4D8]/90 dark:group-hover:text-[#FAD4D8] transition-colors duration-300">{project.title}</h3>
-                      <p className="text-lg mb-4 dark:text-[#E2E8F0]">{project.description}</p>
-                      <p className="text-gray-500 dark:text-[#94A3B8] mb-8">{project.subtitle}</p>
+                  <div key={project.title} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start group">
+                    <div>
+                      <h3 className="text-2xl font-bold mb-4 group-hover:text-[#FAD4D8]/90 transition-colors duration-300">{project.title}</h3>
+                      <p className="text-lg mb-4">{project.description}</p>
+                      <p className="text-gray-500 mb-8">{project.subtitle}</p>
                       <div className="flex space-x-4">
                         <a 
                           href={project.liveUrl}
@@ -147,7 +154,7 @@ export default function PackagesPage() {
                         </a>
                         <a 
                           href="#"
-                          className="inline-flex items-center px-5 py-2.5 border border-[#FAD4D8]/30 text-sm font-medium rounded-md text-gray-800 dark:text-[#E2E8F0] hover:bg-[#FAD4D8]/10 transition-colors duration-300"
+                          className="inline-flex items-center px-5 py-2.5 border border-[#FAD4D8]/30 text-sm font-medium rounded-md text-gray-800 hover:bg-[#FAD4D8]/10 transition-colors duration-300"
                         >
                           Case Study
                         </a>
@@ -155,7 +162,7 @@ export default function PackagesPage() {
                     </div>
                     <div className="grid grid-cols-1 gap-6">
                       {project.images.map((image, i) => (
-                        <div key={i} className="overflow-hidden rounded-lg shadow-lg border border-transparent dark:border-[#FAD4D8]/10 group-hover:shadow-xl transition-shadow duration-500">
+                        <div key={i} className="overflow-hidden rounded-lg shadow-lg border border-transparent group-hover:shadow-xl transition-shadow duration-500">
                           <Image 
                             src={image} 
                             alt={`${project.title} screenshot ${i+1}`} 
@@ -174,7 +181,7 @@ export default function PackagesPage() {
         </section>
 
         {/* Testimonial Section */}
-        <section className="w-full py-16 bg-gray-50 dark:bg-gray-900">
+        <section className="w-full py-16 bg-gray-50">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
               <div className="md:col-span-1">
@@ -187,7 +194,7 @@ export default function PackagesPage() {
                 />
               </div>
               <div className="md:col-span-2">
-                <blockquote className="text-lg text-gray-600 dark:text-gray-300 mb-4">
+                <blockquote className="text-lg text-gray-600 mb-4">
                   &ldquo;Celesti helped us build our website from scratch to production in a record 1 month time. They took our requirements and delivered a website we are proud of so much that we are thrilled. I couldn&apos;t be any happier. Highly recommended.&rdquo;
                 </blockquote>
                 <footer>
@@ -210,7 +217,7 @@ export default function PackagesPage() {
               className="max-w-3xl mx-auto"
             >
               <h2 className="text-3xl font-bold mb-6">Want a custom website or more features? Talk to us.</h2>
-              <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
+              <p className="text-lg text-gray-600 mb-8">
                 See the blue chat box and the bottom? Click on it and talk to us. We will get back to you within 24 hours. Or just email us, just talk. :)
               </p>
               <a 

@@ -33,10 +33,10 @@ const WorkItem = ({ title, description, imageUrl, link }: WorkItemProps) => {
       </div>
       <div>
         <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{description}</p>
+        <p className="text-sm text-gray-500 mb-4">{description}</p>
         <Link
           href={link}
-          className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+          className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"
         >
           View Project
         </Link>
@@ -82,7 +82,7 @@ const RecentWork = () => {
           className="flex flex-col items-center gap-4 text-center mb-10"
         >
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Recent Work</h2>
-          <p className="text-gray-500 md:text-xl/relaxed dark:text-gray-400">
+          <p className="text-gray-500 md:text-xl/relaxed">
             A look at some of the exciting projects that we&apos;ve recently worked on.
           </p>
         </motion.div>

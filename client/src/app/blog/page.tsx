@@ -35,9 +35,9 @@ const BlogCard = ({
             className="object-cover"
           />
         </div>
-        <div className="p-6 bg-white dark:bg-gray-800">
-          <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100 line-clamp-2">{title}</h3>
-          <p className="text-gray-700 dark:text-gray-300 line-clamp-3">{excerpt}</p>
+        <div className="p-6 bg-white">
+          <h3 className="text-xl font-bold mb-2 text-gray-900 line-clamp-2">{title}</h3>
+          <p className="text-gray-700 line-clamp-3">{excerpt}</p>
         </div>
       </Link>
     </motion.div>
@@ -79,7 +79,7 @@ export default function BlogPage() {
               className="max-w-3xl mx-auto text-center mb-16"
             >
               <h1 className="text-4xl font-bold mb-6">Everything you need to know about <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">web apps</span></h1>
-              <p className="text-lg text-gray-600 dark:text-gray-400">
+              <p className="text-lg text-gray-600">
                 We write about everything from design to deployment to get your website shipped and ready to go!
               </p>
             </motion.div>

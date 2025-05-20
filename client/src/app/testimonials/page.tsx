@@ -48,7 +48,7 @@ export default function TestimonialsPage() {
               className="max-w-3xl mx-auto text-center mb-16"
             >
               <h1 className="text-4xl font-bold mb-6">Client Testimonials</h1>
-              <p className="text-lg text-gray-600 dark:text-gray-400">
+              <p className="text-lg text-gray-600">
                 Don&apos;t just take our word for it. Here&apos;s what our clients have to say about our work.
               </p>
             </motion.div>
@@ -64,11 +64,11 @@ export default function TestimonialsPage() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 * index }}
-                    className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"
+                    className="bg-white p-6 rounded-lg shadow-md"
                   >
                     <div className="flex items-start">
                       <div className="flex-shrink-0 mr-4">
-                        <div className="w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center">
                           <Image
                             src="/placeholder-150.svg"
                             alt={testimonial.name}
@@ -79,11 +79,11 @@ export default function TestimonialsPage() {
                         </div>
                       </div>
                       <div>
-                        <p className="text-gray-600 dark:text-gray-300 italic mb-4">&ldquo;{testimonial.quote}&rdquo;</p>
+                        <p className="text-gray-600 italic mb-4">&ldquo;{testimonial.quote}&rdquo;</p>
                         <div className="flex items-center">
                           <div>
                             <p className="font-semibold">{testimonial.name}</p>
-                            <p className="text-sm text-gray-500 dark:text-gray-400">
+                            <p className="text-sm text-gray-500">
                               {testimonial.position} at {testimonial.company}
                             </p>
                           </div>

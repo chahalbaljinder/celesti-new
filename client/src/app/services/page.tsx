@@ -56,7 +56,7 @@ export default function ServicesPage() {
               className="max-w-3xl mx-auto text-center mb-16"
             >
               <h1 className="text-4xl font-bold mb-6">Our Services</h1>
-              <p className="text-lg text-gray-600 dark:text-gray-400">
+              <p className="text-lg text-gray-600">
                 We offer a comprehensive range of web development services tailored to meet your specific business needs.
               </p>
             </motion.div>
@@ -71,7 +71,7 @@ export default function ServicesPage() {
                   className="max-w-5xl mx-auto"
                 >
                   <h2 className="text-3xl font-bold mb-4">{category.title}</h2>
-                  <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-3xl">
+                  <p className="text-gray-600 mb-8 max-w-3xl">
                     {category.description}
                   </p>
                   
@@ -79,11 +79,11 @@ export default function ServicesPage() {
                     {category.services.map((service, i) => (
                       <div 
                         key={i} 
-                        className="p-6 border border-gray-200 dark:border-gray-800 rounded-lg hover:shadow-md transition-shadow"
+                        className="p-6 border border-gray-200 rounded-lg hover:shadow-md transition-shadow"
                       >
                         <h3 className="text-xl font-semibold mb-2">{service}</h3>
                         <div className="w-12 h-1 bg-purple-500 mb-4"></div>
-                        <p className="text-gray-600 dark:text-gray-400">
+                        <p className="text-gray-600">
                           Professional {service.toLowerCase()} services tailored to your specific business needs.
                         </p>
                       </div>

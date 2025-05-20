@@ -32,12 +32,12 @@ const TemplateCard = ({
       className="mb-24"
     >
       <h2 className="text-3xl font-bold mb-2">{title}</h2>
-      <p className="text-lg mb-2 text-gray-700 dark:text-gray-300">{description}</p>
-      <p className="text-gray-500 mb-6 dark:text-gray-400">{subtitle}</p>
+      <p className="text-lg mb-2 text-gray-700">{description}</p>
+      <p className="text-gray-500 mb-6">{subtitle}</p>
       
       <div className="flex flex-wrap mb-6">
         {technologies.map((tech, index) => (
-          <span key={index} className="mr-2 mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+          <span key={index} className="mr-2 mb-2 text-sm font-medium text-gray-700">
             {tech}
             {index < technologies.length - 1 && <span className="ml-1 text-gray-400">•</span>}
           </span>
@@ -82,7 +82,7 @@ const TemplateCard = ({
 
 const Testimonial = () => {
   return (
-    <div className="relative my-16 px-6 py-8 bg-gray-50 dark:bg-gray-900 rounded-lg">
+    <div className="relative my-16 px-6 py-8 bg-gray-50 rounded-lg">
       <div className="absolute -top-10 left-10">
         <Image 
           src="/images/testimonials/tyler.png" 
@@ -94,7 +94,7 @@ const Testimonial = () => {
       </div>
       <div className="mt-6 pt-4">
         <svg 
-          className="absolute top-0 left-0 transform -translate-y-6 -translate-x-2 h-16 w-16 text-gray-200 dark:text-gray-800" 
+          className="absolute top-0 left-0 transform -translate-y-6 -translate-x-2 h-16 w-16 text-gray-200" 
           width="16" 
           height="16" 
           viewBox="0 0 16 16" 
@@ -112,11 +112,11 @@ const Testimonial = () => {
           />
         </svg>
         <blockquote className="relative z-10">
-          <p className="text-gray-800 dark:text-gray-200 text-lg mb-6">
+          <p className="text-gray-800 text-lg mb-6">
             &quot;Agenlabs helped us build our website from scratch to production in a record 1 month time. They took our requirements and delivered a website we are proud of so much that we are thrilled. I couldn&apos;t be any happier. Highly recommended.&quot;
           </p>
-          <footer className="text-gray-600 dark:text-gray-400 font-medium">
-            <p className="font-bold text-gray-900 dark:text-gray-100">Tyler Durden</p>
+          <footer className="text-gray-600 font-medium">
+            <p className="font-bold text-gray-900">Tyler Durden</p>
             <p className="text-sm">Founder at Project Mayhem</p>
           </footer>
         </blockquote>
@@ -154,7 +154,7 @@ export default function TemplatesPage() {
               className="max-w-3xl mx-auto text-center mb-16"
             >
               <h1 className="text-4xl font-bold mb-6">Website templates that <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">stand out</span></h1>
-              <p className="text-lg text-gray-600 dark:text-gray-400">
+              <p className="text-lg text-gray-600">
                 Carefully crafted website templates that are ready to be customized and launched.
               </p>
             </motion.div>
@@ -179,7 +179,7 @@ export default function TemplatesPage() {
         </section>
 
         {/* Contact Section */}
-        <section className="w-full py-16 bg-gray-50 dark:bg-gray-900">
+        <section className="w-full py-16 bg-gray-50">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -189,7 +189,7 @@ export default function TemplatesPage() {
               className="max-w-3xl mx-auto"
             >
               <h2 className="text-3xl font-bold mb-6">Want to customize templates? We are here!</h2>
-              <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
+              <p className="text-lg text-gray-600 mb-8">
                 Contact us and we will get back within 24 hours. We mean it. You saw the testimonials, right?
               </p>
               <a 
