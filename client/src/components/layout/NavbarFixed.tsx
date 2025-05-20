@@ -58,24 +58,20 @@ const Navbar = () => {
       console.log('Navigating to services page');
     }
   };
-  
-  return (
+    return (
     <header className="w-full px-4 lg:px-6 h-14 flex items-center justify-between fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#0F172A] backdrop-blur-sm border-b border-gray-100 dark:border-[#1E293B]">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center">
-          <div className="h-8 w-auto mr-2">
+          <div className="h-16 w-auto">
             <Image 
-              src="/celestial-logo.png" 
+              src="/Celestial.png" 
               alt="Celesti Logo" 
-              width={48} 
-              height={48} 
-              className="h-8 w-auto"
+              width={96} 
+              height={96} 
+              className="h-16 w-auto"
               priority
             />
           </div>
-          <span className="font-semibold text-xl ml-2">
-            <span className="text-black dark:text-[#CFD1EA]">Celesti</span>
-          </span>
         </Link>
         
         {/* Desktop Navigation */}
