@@ -1,158 +1,444 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import NavbarFixed from "@/components/layout/NavbarFixed";
 import Footer from "@/components/layout/Footer";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
-const ProjectCard = ({ 
-  title, 
-  description, 
-  subtitle, 
-  images, 
-  liveUrl 
-}: { 
-  title: string; 
+interface ProjectFeature {
+  title: string;
   description: string;
-  subtitle: string;
+  icon: string;
+}
+
+interface TechStack {
+  name: string;
+  color: string;
+}
+
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  longDescription: string;
+  category: string;
   images: string[];
+  features: ProjectFeature[];
+  techStack: TechStack[];
   liveUrl: string;
-}) => {
+  status: string;
+}
+
+const ProjectShowcase = ({ project }: { project: Project }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentFeatureIndex, setCurrentFeatureIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Auto-slide images
+  useEffect(() => {
+    if (!isPaused && project.images.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [isPaused, project.images.length]);
+
+  // Auto-slide features
+  useEffect(() => {
+    if (project.features.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentFeatureIndex((prev) => (prev + 1) % project.features.length);
+      }, 4000);
+      return () => clearInterval(interval);
+    }
+  }, [project.features.length]);
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="mb-32 group"
+      className="mb-12 bg-white rounded-xl shadow-lg overflow-hidden"
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-3">{title}</h2>
-      <p className="text-lg mb-3 text-gray-700 max-w-3xl">{description}</p>
-      <p className="text-gray-500 mb-6">{subtitle}</p>
-      
-      <div className="flex flex-wrap items-center mb-8">
-        <a 
-          href={liveUrl} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="inline-flex items-center px-5 py-2.5 border border-transparent text-sm font-medium rounded-md shadow-md text-[#0F172A] bg-[#D4AF37] hover:bg-[#D4AF37]/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#D4AF37] transition-colors duration-300 mr-4"
-        >
-          Live Preview
-        </a>
-        <a 
-          href="#" 
-          className="inline-flex items-center px-5 py-2.5 border border-[#D4AF37]/30 text-sm font-medium rounded-md shadow-sm text-gray-800 bg-transparent hover:bg-[#D4AF37]/10 transition-colors duration-300 focus:outline-none"
-        >
-          Case Study
-        </a>
+      {/* Project Header */}
+      <div className="p-6 bg-gradient-to-r from-gray-50 to-white">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+          <div>
+            <div className="flex items-center gap-3 mb-2">
+              <span className="px-3 py-1 bg-[#FAD4D8] text-[#0F172A] text-sm font-medium rounded-full">
+                {project.category}
+              </span>
+              <span className={`px-3 py-1 text-sm font-medium rounded-full ${
+                project.status === 'Live' 
+                  ? 'bg-green-100 text-green-800' 
+                  : 'bg-gray-100 text-gray-800'
+              }`}>
+                {project.status}
+              </span>
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">{project.title}</h2>
+            <p className="text-base text-gray-600 mb-3 max-w-2xl">{project.description}</p>
+          </div>
+          
+          {project.status === 'Live' && (
+            <div className="flex gap-3">
+              <Link
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-5 py-2 bg-[#FAD4D8] text-[#0F172A] font-medium rounded-lg hover:bg-[#FAD4D8]/90 transition-all duration-300 hover:scale-105 shadow-md text-sm"
+              >
+                🚀 Live Preview
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {images.map((image, index) => (
+
+      {/* Main Content Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6">
+        
+        {/* Left Column - Image Slider */}
+        <div className="space-y-4">
+          {/* Main Image Slider */}
           <div 
-            key={index} 
-            className="rounded-lg overflow-hidden shadow-xl group-hover:shadow-2xl transition-shadow duration-500 border border-transparent bg-white"
+            className="relative rounded-lg overflow-hidden shadow-md"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
           >
-            <div className="relative p-2">
-              <Image
-                src={image}
-                alt={`${title} screenshot ${index + 1}`}
-                width={1080}
-                height={675}
-                className="w-full h-auto object-cover rounded-md transition-transform duration-500 hover:scale-102"
-              />
-              <div className="absolute inset-0 bg-[#D4AF37]/0 hover:bg-[#D4AF37]/10 transition-colors duration-300 pointer-events-none rounded-md"></div>
+            <div className="aspect-[16/10] relative">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentImageIndex}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={project.images[currentImageIndex]}
+                    alt={`${project.title} screenshot ${currentImageIndex + 1}`}
+                    fill
+                    className="object-contain bg-gray-50"
+                    priority
+                  />
+                </motion.div>
+              </AnimatePresence>
+              
+              {/* Image Navigation */}
+              {project.images.length > 1 && (
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1">
+                  {project.images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                        index === currentImageIndex 
+                          ? 'bg-white scale-125' 
+                          : 'bg-white/60 hover:bg-white/80'
+                      }`}
+                      aria-label={`Go to image ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
-        ))}
+
+          {/* Tech Stack - Sliding Animation */}
+          <div className="bg-gray-50 rounded-lg p-4">
+            <h4 className="text-base font-semibold mb-3 text-gray-800">Technology Stack</h4>
+            <div className="flex flex-wrap gap-2">
+              {project.techStack.map((tech, index) => (
+                <motion.span
+                  key={tech.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className={`px-2 py-1 rounded-full text-xs font-medium ${tech.color}`}
+                >
+                  {tech.name}
+                </motion.span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column - Features & Details */}
+        <div className="space-y-4">
+          {/* Project Description */}
+          <div className="bg-gray-50 rounded-lg p-4">
+            <h4 className="text-base font-semibold mb-2 text-gray-800">About This Project</h4>
+            <p className="text-sm text-gray-600 leading-relaxed">{project.longDescription}</p>
+          </div>
+
+          {/* Features Slider */}
+          <div className="bg-gradient-to-br from-[#FAD4D8]/10 to-[#FAD4D8]/20 rounded-lg p-4">
+            <h4 className="text-base font-semibold mb-3 text-gray-800">Key Features</h4>
+            <div className="relative min-h-[100px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentFeatureIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4 }}
+                  className="space-y-2"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl">{project.features[currentFeatureIndex]?.icon}</span>
+                    <h5 className="text-base font-semibold text-gray-800">
+                      {project.features[currentFeatureIndex]?.title}
+                    </h5>
+                  </div>
+                  <p className="text-sm text-gray-600 pl-8">
+                    {project.features[currentFeatureIndex]?.description}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+              
+              {/* Feature Navigation */}
+              {project.features.length > 1 && (
+                <div className="flex gap-1 mt-3 pl-8">
+                  {project.features.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentFeatureIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                        index === currentFeatureIndex 
+                          ? 'bg-[#FAD4D8] scale-125' 
+                          : 'bg-gray-300 hover:bg-gray-400'
+                      }`}
+                      aria-label={`Go to feature ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </motion.div>
   );
 };
 
 export default function WorkPage() {
-  const projects = [
+  const projects: Project[] = [
     {
-      title: "Algochurn",
-      description: "Practice the most popular coding questions asked in a technical interview round.",
-      subtitle: "Used by 1000+ registered users preparing for technical interviews.",
-      images: [
-        "/images/products/algochurn.png",
-        "/images/products/algochurn2.png"
+      id: "zinikus",
+      title: "Zinikus",
+      description: "Modular robotics platform supporting assembly of various robotic bodies for delivery, reception, cleaning, and advertisements with comprehensive customization services.",
+      longDescription: "Based on personalized needs, our Platform is designed to support the assembly of various robotic bodies, including delivery, reception, cleaning, and advertisements, catering to diverse customer requirements. ZINIKUS operates a professional production facility, an advanced R&D center, and a dedicated maintenance team, offering comprehensive modular services across three key domains: robotic customization, system integration, and long-term support & upgrades.",
+      category: "Robotics Platform",
+      images: ["/zinikus.png"],
+      features: [
+        {
+          title: "Modular Robotics",
+          description: "Customizable robotic bodies for delivery, reception, cleaning, and advertisement applications tailored to specific needs.",
+          icon: "🤖"
+        },
+        {
+          title: "System Integration",
+          description: "Advanced R&D center providing seamless integration of robotic systems into existing business operations.",
+          icon: "⚙️"
+        },
+        {
+          title: "Long-term Support",
+          description: "Professional production facility with dedicated maintenance team offering ongoing support and upgrades.",
+          icon: "🔧"
+        }
       ],
-      liveUrl: "https://algochurn.com/"
+      techStack: [
+        { name: "Robotics", color: "bg-purple-100 text-purple-800" },
+        { name: "IoT", color: "bg-blue-100 text-blue-800" },
+        { name: "AI/ML", color: "bg-green-100 text-green-800" },
+        { name: "Hardware Integration", color: "bg-orange-100 text-orange-800" }
+      ],
+      liveUrl: "https://www.zinikus.com/",
+      status: "Live"
     },
     {
-      title: "Tailwind Master Kit",
-      description: "Get beautiful, responsive, professionally developed Tailwind UI components and build your website quicker",
-      subtitle: "Worry less about responsive and beautiful UI, let Tailwind Master Kit handle the complexity.",
-      images: [
-        "/images/products/tailwindmasterkit.png",
-        "/images/products/tailwindmasterkit3.png"
+      id: "martialartsguru",
+      title: "Martial Arts Guru",
+      description: "Comprehensive martial arts learning platform featuring expert tutorials, training programs, and community features.",
+      longDescription: "A complete martial arts learning ecosystem that connects students with expert instructors worldwide. Features include interactive tutorials, personalized training programs, progress tracking, and a vibrant community of martial arts enthusiasts.",
+      category: "E-Learning Platform",
+      images: ["/martialartsguru.png"],
+      features: [
+        {
+          title: "Expert Tutorials",
+          description: "High-quality video lessons from certified martial arts masters covering various disciplines and skill levels.",
+          icon: "🥋"
+        },
+        {
+          title: "Progress Tracking",
+          description: "Advanced analytics to monitor your learning journey and skill development over time.",
+          icon: "📊"
+        },
+        {
+          title: "Community Features",
+          description: "Connect with fellow practitioners, share experiences, and participate in virtual competitions.",
+          icon: "👥"
+        }
       ],
-      liveUrl: "https://tailwindmasterkit.com/"
+      techStack: [
+        { name: "React", color: "bg-blue-100 text-blue-800" },
+        { name: "Node.js", color: "bg-green-100 text-green-800" },
+        { name: "MongoDB", color: "bg-green-100 text-green-800" },
+        { name: "WebRTC", color: "bg-purple-100 text-purple-800" }
+      ],
+      liveUrl: "https://martialarts.guru/",
+      status: "Live"
     },
     {
-      title: "Creme Digital",
-      description: "Commonsense solutions that achieve marketing objectives and reach business goals",
-      subtitle: "Since 2015, Creme Digital's solutions have supported brands from virtually every industry",
-      images: [
-        "/images/products/cremedigital3.png",
-        "/images/products/cremedigital.png"
+      id: "fuelapp",
+      title: "Fuel App",
+      description: "Complete solution for managing multiple petrol pumps across different locations using a single unified platform.",
+      longDescription: "A comprehensive fuel station management system that enables operators to monitor and control multiple petrol pump locations from a centralized dashboard. Features include inventory management, sales tracking, staff monitoring, and real-time analytics across all locations.",
+      category: "Management Platform",
+      images: ["/fuelapp.png"],
+      features: [
+        {
+          title: "Multi-Location Management",
+          description: "Centralized control panel to manage multiple petrol pump locations from a single dashboard.",
+          icon: "⛽"
+        },
+        {
+          title: "Inventory Tracking",
+          description: "Real-time fuel inventory monitoring with automated alerts for low stock levels across all locations.",
+          icon: "�"
+        },
+        {
+          title: "Sales Analytics",
+          description: "Comprehensive sales reporting and analytics to optimize operations and maximize profitability.",
+          icon: "�"
+        }
       ],
-      liveUrl: "https://cremedigital.com/"
+      techStack: [
+        { name: "React", color: "bg-blue-100 text-blue-800" },
+        { name: "Node.js", color: "bg-green-100 text-green-800" },
+        { name: "PostgreSQL", color: "bg-blue-100 text-blue-800" },
+        { name: "Real-time API", color: "bg-purple-100 text-purple-800" }
+      ],
+      liveUrl: "https://fuelapp.ashishnigam.com/",
+      status: "Live"
     },
     {
-      title: "Invoker Labs",
-      description: "Delivering magical Web3 experiences with a wide range of products and services.",
-      subtitle: "Flagship products include Nearsend, Nearblocks, nKYC and Route ag.",
-      images: [
-        "/images/products/invoker.png",
-        "/images/products/invoker2.png"
+      id: "fleetrr",
+      title: "Fleetrr Online Services",
+      description: "Quick e-commerce platform specializing in stationery and books with fast delivery and competitive pricing.",
+      longDescription: "A streamlined e-commerce solution focused on providing quick access to stationery supplies and books. Designed for efficiency with features like rapid checkout, inventory management, and same-day delivery options for educational and office supplies.",
+      category: "E-Commerce Platform",
+      images: ["/fleetrr.png"],
+      features: [
+        {
+          title: "Quick Checkout",
+          description: "Streamlined purchasing process designed for fast and efficient ordering of stationery and books.",
+          icon: "�"
+        },
+        {
+          title: "Inventory Management",
+          description: "Real-time stock tracking and automated reordering system for consistent product availability.",
+          icon: "�"
+        },
+        {
+          title: "Fast Delivery",
+          description: "Same-day and next-day delivery options for urgent stationery and educational material needs.",
+          icon: "�"
+        }
       ],
-      liveUrl: "https://invoker.lol/"
+      techStack: [
+        { name: "Vue.js", color: "bg-green-100 text-green-800" },
+        { name: "Laravel", color: "bg-red-100 text-red-800" },
+        { name: "MySQL", color: "bg-blue-100 text-blue-800" },
+        { name: "Payment Gateway", color: "bg-yellow-100 text-yellow-800" }
+      ],
+      liveUrl: "https://www.fleetrr.in/",
+      status: "Live"
+    },
+    {
+      id: "musicroom",
+      title: "Music Room App",
+      description: "Platform for booking music rehearsal rooms and practice spaces with flexible scheduling and equipment management.",
+      longDescription: "A comprehensive booking system for music rehearsal spaces that allows musicians and bands to reserve practice rooms, recording studios, and performance spaces. Features include equipment management, scheduling, payment processing, and space availability tracking.",
+      category: "Booking Platform",
+      images: ["/music_room.png"],
+      features: [
+        {
+          title: "Room Booking System",
+          description: "Easy-to-use booking interface for reserving music rehearsal rooms and practice spaces by hour or day.",
+          icon: "🎵"
+        },
+        {
+          title: "Equipment Management",
+          description: "Track and reserve musical equipment, amplifiers, and recording gear available in each room.",
+          icon: "🎸"
+        },
+        {
+          title: "Flexible Scheduling",
+          description: "Advanced scheduling system with recurring bookings, group reservations, and real-time availability.",
+          icon: "📅"
+        }
+      ],
+      techStack: [
+        { name: "React Native", color: "bg-blue-100 text-blue-800" },
+        { name: "Node.js", color: "bg-green-100 text-green-800" },
+        { name: "MongoDB", color: "bg-green-100 text-green-800" },
+        { name: "Booking API", color: "bg-purple-100 text-purple-800" }
+      ],
+      liveUrl: "#",
+      status: "In Development"
     }
   ];
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gray-50">
       <NavbarFixed />
       <main className="flex-grow pt-14">
-        <section className="w-full py-24 md:py-32 relative">
-          <div className="absolute inset-0 pointer-events-none"></div>
-          <div className="container mx-auto px-4 md:px-6 relative z-10">
+        {/* Hero Section */}
+        <section className="w-full py-16 md:py-24 bg-gradient-to-br from-white to-[#FAD4D8]/10">
+          <div className="container mx-auto px-4 md:px-6">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="max-w-3xl mx-auto text-center mb-20"
+              className="max-w-4xl mx-auto text-center mb-16"
             >
-              <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37]">Our Portfolio</div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">A glimpse into our <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] to-[#FEF3C7]">premium projects</span></h1>
-              <p className="text-lg text-gray-600">
-                Explore our collection of bespoke digital experiences crafted with precision and luxury in mind.
+              <div className="inline-block mb-4 text-sm font-medium px-4 py-2 rounded-full bg-[#FAD4D8] text-[#0F172A]">
+                Our Portfolio
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                Crafting Digital{" "}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FAD4D8] to-pink-400">
+                  Experiences
+                </span>
+              </h1>
+              <p className="text-xl text-gray-600 leading-relaxed">
+                Explore our collection of innovative projects, each designed with precision and built with cutting-edge technology.
               </p>
             </motion.div>
-            
-            <div className="max-w-6xl mx-auto">
+          </div>
+        </section>
+
+        {/* Projects Section */}
+        <section className="w-full py-6">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="max-w-7xl mx-auto space-y-8">
               {projects.map((project) => (
-                <ProjectCard
-                  key={project.title}
-                  title={project.title}
-                  description={project.description}
-                  subtitle={project.subtitle}
-                  images={project.images}
-                  liveUrl={project.liveUrl}
-                />
+                <ProjectShowcase key={project.id} project={project} />
               ))}
             </div>
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section className="w-full py-20 bg-gray-50 border-t border-gray-100 relative">
-          <div className="absolute inset-0 pointer-events-none"></div>
-          <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
+        {/* CTA Section */}
+        <section className="w-full py-20 bg-gradient-to-br from-[#FAD4D8]/20 to-pink-100/20">
+          <div className="container mx-auto px-4 md:px-6 text-center">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -160,24 +446,25 @@ export default function WorkPage() {
               viewport={{ once: true }}
               className="max-w-3xl mx-auto"
             >
-              <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37]">Ready to Begin?</div>
-              <h2 className="text-3xl font-bold mb-6">Transform Your Digital Presence</h2>
-              <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
-                Contact us for a personalized consultation. Our team of experts will collaborate with you to create a bespoke digital experience that reflects the premium nature of your brand.
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
+                Ready to Start Your Project?
+              </h2>
+              <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                Let's collaborate and create something amazing together. Get in touch to discuss your vision and bring it to life.
               </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <a 
-                  href="mailto:contact@luxuryagency.com"
-                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-md text-[#0F172A] bg-[#D4AF37] hover:bg-[#D4AF37]/90 transition-colors duration-300 focus:outline-none"
-                >
-                  Contact Us
-                </a>
-                <a 
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
                   href="/contact"
-                  className="inline-flex items-center px-6 py-3 border border-[#D4AF37]/30 text-base font-medium rounded-md text-gray-800 hover:bg-[#D4AF37]/10 transition-colors duration-300"
+                  className="inline-flex items-center px-8 py-4 bg-[#FAD4D8] text-[#0F172A] font-semibold rounded-lg hover:bg-[#FAD4D8]/90 transition-all duration-300 hover:scale-105 shadow-lg"
                 >
-                  View Services
-                </a>
+                  💬 Let's Talk
+                </Link>
+                <Link
+                  href="/services"
+                  className="inline-flex items-center px-8 py-4 border border-[#FAD4D8] text-gray-800 font-semibold rounded-lg hover:bg-[#FAD4D8]/10 transition-all duration-300"
+                >
+                  🔍 View Services
+                </Link>
               </div>
             </motion.div>
           </div>

@@ -51,6 +51,12 @@ const RecentWork = () => {
 
   const projects = [
     {
+      title: "Zinikus",
+      description: "Modular robotics platform supporting assembly of various robotic bodies for delivery, reception, cleaning, and advertisements with comprehensive customization services.",
+      imageUrl: "/zinikus.png",
+      link: "https://www.zinikus.com/"
+    },
+    {
       title: "Martial Arts Guru",
       description: "Comprehensive martial arts learning platform featuring expert tutorials, training programs, and community features.",
       imageUrl: "/martialartsguru.png",
@@ -58,19 +64,19 @@ const RecentWork = () => {
     },
     {
       title: "Fuel App",
-      description: "Smart fuel management application designed to optimize fuel consumption and track expenses efficiently.",
+      description: "Complete solution for managing multiple petrol pumps across different locations using a single unified platform.",
       imageUrl: "/fuelapp.png",
       link: "https://fuelapp.ashishnigam.com/"
     },
     {
       title: "Fleetrr Online Services",
-      description: "Fleet management solution providing real-time tracking, maintenance scheduling, and operational insights.",
+      description: "Quick e-commerce platform specializing in stationery and books with fast delivery and competitive pricing.",
       imageUrl: "/fleetrr.png",
       link: "https://www.fleetrr.in/"
     },
     {
       title: "Music Room App",
-      description: "Modern music streaming application with curated playlists, personalized recommendations, and social features.",
+      description: "Platform for booking music rehearsal rooms and practice spaces with flexible scheduling and equipment management.",
       imageUrl: "/music_room.png",
       link: "#"
     }
