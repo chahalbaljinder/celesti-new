@@ -62,13 +62,13 @@ const Navbar = () => {
     <header className="w-full px-4 lg:px-6 h-14 flex items-center justify-between fixed top-0 left-0 right-0 z-50 bg-white backdrop-blur-sm border-b border-gray-100">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center">
-          <div className="h-16 w-auto">
+          <div className="h-16 w-35 flex items-center justify-center">
             <img
               src={Celesti.src} 
               alt="Celesti Logo" 
               width={96} 
               height={96} 
-              className="h-16 w-auto"
+              className="h-12 w-auto object-contain" // Adjust height as needed
               // priority
             />
           </div>
@@ -76,6 +76,11 @@ const Navbar = () => {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-6">
+
+          <Link href= "/about" className="text-sm font-medium hover:text-[#FAD4D8] transition-colors duration-300">
+            About 
+          </Link>
+
           <Link href="/work" className="text-sm font-medium hover:text-[#FAD4D8] transition-colors duration-300">
             Work
           </Link>
@@ -89,7 +94,7 @@ const Navbar = () => {
             Services
           </Link>
           
-          <Link href="/packages" className="text-sm font-medium hover:text-[#FAD4D8] transition-colors duration-300">
+          {/* <Link href="/packages" className="text-sm font-medium hover:text-[#FAD4D8] transition-colors duration-300">
             Packages
           </Link>
           
@@ -99,7 +104,7 @@ const Navbar = () => {
           
           <Link href="/blog" className="text-sm font-medium hover:text-[#FAD4D8] transition-colors duration-300">
             Blog
-          </Link>
+          </Link> */}
         </nav>
         
         {/* Contact Button */}

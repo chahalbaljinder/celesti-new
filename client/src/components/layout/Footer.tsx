@@ -19,15 +19,20 @@ const Footer = () => {
           </Link>
           <div className="flex flex-wrap justify-center gap-8 mb-10">            <Link href="/" className="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-300">
               Home
-            </Link>            <Link href="/about" className="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-300">
+            </Link>            
+            <Link href="/about" className="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-300">
               About
-            </Link>            <Link href="/services" className="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-300">
+            </Link>            
+            <Link href="/services" className="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-300">
               Services
-            </Link>            <Link href="/testimonials" className="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-300">
+            </Link>            
+            {/* <Link href="/testimonials" className="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-300">
               Testimonials
-            </Link>            <Link href="/blog" className="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-300">
+            </Link>            
+            <Link href="/blog" className="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-300">
               Blog
-            </Link>            <Link href="/contact" className="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-300">
+            </Link>            */}
+            <Link href="/contact" className="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-300">
               Contact
             </Link>
           </div>
